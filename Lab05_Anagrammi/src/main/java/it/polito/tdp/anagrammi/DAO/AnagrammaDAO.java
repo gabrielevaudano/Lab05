@@ -10,14 +10,14 @@ import it.polito.tdp.anagrammi.model.Parola;
 public class AnagrammaDAO {
 	
 	public boolean isCorrect(Parola parola) {
-		String sql = "SELECT nome FROM parola WHERE nome = ? ";
+		String sql = "SELECT * FROM parola WHERE nome = ? ";
 				
 		try {
-			Connection conn = ConnectDB.getConnection(); // (*1)
+			Connection conn = ConnectDB.getConnection(); 
 			
-			PreparedStatement stn = conn.prepareStatement(sql); // metafora del tubo (conn) e navetta (st)
+			PreparedStatement stn = conn.prepareStatement(sql); 
 			stn.setString(1, parola.toString());
-			ResultSet res = stn.executeQuery(); // Non va inserito (sql) qui
+			ResultSet res = stn.executeQuery(); 
 			
 			if(res.next()) {
 				conn.close();

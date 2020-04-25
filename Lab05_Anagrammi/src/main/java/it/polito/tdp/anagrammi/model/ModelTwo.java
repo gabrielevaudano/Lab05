@@ -1,12 +1,13 @@
 package it.polito.tdp.anagrammi.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import it.polito.tdp.anagrammi.DAO.AnagrammaDAO;
 
-public class Model {
+public class ModelTwo extends Model{
 	private Integer N;
 	private Parola originale;
 	private Set<Parola> anagrammi;
@@ -40,11 +41,9 @@ public class Model {
 			System.out.println(parziale);
 		}
 		else {
-			List<Character> parola = originale.getParola();
+			List<Character> parola = new ArrayList<Character>(originale.getParola());
 			
-			for (int j=0; j<parola.size(); j++) {
-				Character c = parola.get(j);
-				
+			for (Character c: parola) {				
 				parziale.addParola(c);
 				parola.remove(c);
 				
@@ -52,7 +51,7 @@ public class Model {
 				
 				
 				parziale.removeParola(c);
-				parola.add(j, c);
+				parola.add(c);
 			}
 		}
 	}

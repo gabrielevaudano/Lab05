@@ -5,17 +5,10 @@ import java.util.List;
 
 public class Parola {
 	List<Character> parola;
-	
-	public Parola(List<Character> parola) {
-		parola = new ArrayList<Character>();
-		this.parola.addAll(parola);
-		
-	}
 
 	public Parola() {
 		parola = new ArrayList<Character>();
 	}
-
 	
 	public Parola(Parola parziale) {
 		parola = new ArrayList<Character>();
